@@ -36,7 +36,6 @@ class UserView(View):
     @staticmethod
     def get(request):
 
-        # user = get_object_or_404(User, pk=user_id)
         user = request.user
 
         context = {
@@ -50,26 +49,7 @@ class UserView(View):
 
         return render(request, 'user_show.html', context)
 
-    # def get_queryset(self):
-    #     user = self.request.user
-    #     return user
-
     template_name = 'user_show.html'
-#
-#
-# class UpdateUserView(UpdateView):
-#     model = Conference
-#     fields = ['title', 'place', 'description', 'event_date', 'deadline']
-#     template_name = 'edit_conference.html'
-#
-#     def get_success_url(self):
-#         return reverse('resent-confs')
-#
-#     def get_context_data(self, **kwargs):
-#         context = super(UpdateConferenceView, self).get_context_data(**kwargs)
-#         context['action'] = reverse('edit-conference',
-#                                     kwargs={'pk': self.get_object().id})
-#         return context
 
 
 @csrf_protect
